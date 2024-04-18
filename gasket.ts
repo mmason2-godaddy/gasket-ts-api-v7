@@ -4,7 +4,7 @@ import pluginExpress from "@gasket/plugin-express";
 import pluginHttps from "@gasket/plugin-https";
 import pluginWinston from "@gasket/plugin-winston";
 import pluginLogger from "@gasket/plugin-logger";
-import expressRoutes from './routes.ts';
+import expressRoutes from './routes/index.ts';
 
 export default makeGasket({
   plugins: [
