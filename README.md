@@ -57,7 +57,7 @@ It is possible to add a `plugins` directory in app and define Gasket plugins in 
 
 ## ESM & Typescript
 
-This POC is rough implementation of a Gasket API using Typescript and `v7`. There's a lot to still be discovered/determined around the implementation in a `type: module` Gasket app. Our goal is to have generated Gasket apps in `v7` be `type: module` but if that's feasible or not is to be determined. The ecosystem as a whole is still evolving around this. The complications arise when extensions are included in `.ts` files(A requirement of ESM). Typescript will throw an error:
+This POC is rough implementation of a Gasket API using Typescript and `v7`. Hopefully it's obvious that the emphasis isn't around strict type-checking but rather the tooling required to provide Typescript support overall. There's a lot to still be discovered/determined around the implementation in a `type: module` Gasket app. Our goal is to have generated Gasket apps in `v7` be `type: module` but if that's feasible or not is to be determined. The ecosystem as a whole is still evolving around this. The complications arise when extensions are included in `.ts` files(A requirement of ESM). Typescript will throw an error:
 
 ```bash
 An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
