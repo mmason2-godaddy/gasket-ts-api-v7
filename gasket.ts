@@ -5,6 +5,7 @@ import pluginExpress from '@gasket/plugin-express';
 import pluginHttps from '@gasket/plugin-https';
 import pluginWinston from '@gasket/plugin-winston';
 import pluginLogger from '@gasket/plugin-logger';
+import pluginHowdyMiddleware from './plugins/howdy-middleware.ts';
 import expressRoutes from './routes/index.ts';
 import { readFileSync } from 'fs';
 
@@ -13,7 +14,8 @@ export default makeGasket({
     pluginExpress,
     pluginHttps,
     pluginWinston,
-    pluginLogger
+    pluginLogger,
+    pluginHowdyMiddleware
   ],
   express: {
     routes: expressRoutes
@@ -21,7 +23,10 @@ export default makeGasket({
   environments: {
     local: {
       hostname: 'localhost',
-      http: 3000
+      http: 3000,
+      winston: {
+        level: 'debug'
+      }
     },
     production: {
       hostname: 'local.gasket.dev-godaddy.com',
