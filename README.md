@@ -51,6 +51,12 @@ export default makeGasket({
 - `npm run build` - Build the Typescript files with `tsc` and a temporary utility to transform file extensions.
 - `npm run start` - Builds the files, sets the `GASKET_ENV` to `production`, and starts the server with `node` over `https`.
 
+## App-level Typescript Plugin
+
+It is possible to add a `plugins` directory in app and define Gasket plugins in Typescript. There is an example plugin that hooks the `middleware` lifecycle and logs in the `debug` level. It also hooks the `express` lifecycle to add a route to express and define some data. This plugin is a non-sensical example but it demonstrates the ability to define plugins in Typescript with Gasket.
+
+```typescript
+
 ## ESM & Typescript
 
 This POC is rough implementation of a Gasket API using Typescript and `v7`. There's a lot to still be discovered/determined around the implementation in a `type: module` Gasket app. Our goal is to have generated Gasket apps in `v7` be `type: module` but if that's feasible or not is to be determined. The ecosystem as a whole is still evolving around this. The complications arise when extensions are included in `.ts` files(A requirement of ESM). Typescript will throw an error:
