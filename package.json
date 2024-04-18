@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc && node transform-extensions.js",
-    "start": "npm run build && node dist/server.js",
-    "local": "nodemon server.ts",
-    "lint": "eslint --ext .js,.jsx,.cjs .",
+    "start": "npm run build && GASKET_ENV=production node dist/server.js",
+    "local": "GASKET_ENV=local nodemon server.ts",
+    "lint": "eslint --ext .js,.ts .",
     "lint:fix": "npm run lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "npm run stylelint -- --fix",
@@ -24,20 +24,43 @@
     "@gasket/plugin-https": "^7.0.0-next.2",
     "@gasket/plugin-logger": "^7.0.0-next.2",
     "@gasket/plugin-winston": "^7.0.0-next.2",
-    "@gasket/utils": "^7.0.0-next.2"
+    "@gasket/utils": "^7.0.0-next.2",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
+    "eslint": "^8.56.0",
+    "eslint-config-godaddy": "^7.1.0",
+    "eslint-plugin-unicorn": "^44.0.0",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.7.0"
   },
   "nodemonConfig": {
     "ext": "ts",
     "execMap": {
       "ts": "node --loader ts-node/esm"
     }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "godaddy"
+    ],
+    "plugins": [
+      "unicorn",
+      "jsdoc"
+    ],
+    "rules": {
+      "unicorn/filename-case": "error",
+      "no-unused-vars": 1
+    },
+    "ignorePatterns": [
+      "dist",
+      "node_modules"
+    ]
   }
 }
