@@ -27,8 +27,8 @@ export default makeGasket({
       hostname: 'local.gasket.dev-godaddy.com',
       https: {
         port: 9443,
-        key: readFileSync(process.env.CERT_KEY_PATH),
-        cert: readFileSync(process.env.CERT_CRT_PATH)
+        key: readFileSync(process.env.CERT_KEY_PATH || ''),
+        cert: readFileSync(process.env.CERT_CRT_PATH || '')
       }
     }
   }
