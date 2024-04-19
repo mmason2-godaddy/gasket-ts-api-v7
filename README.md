@@ -89,7 +89,7 @@ The ending `tsconfig.json` will likely look something like this:
 
 ## Tooling Options
 
-There's few reliable resources on this topic at the moment. The following are some options that are being considered:
+There's few reliable resources on this topic at the moment. The following are some options that are being considered to allow for ESM, Typescript and Gasket:
 
 - `swc` - initial investigations are not promising.
 - `webpack` - to be explored.
