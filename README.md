@@ -49,7 +49,10 @@ export default makeGasket({
 
 - `npm run local` - Start a development server on port `3000` with `nodemon` and `ts-node` for hot reloading. This server is configured to be `http`.
 - `npm run build` - Build the Typescript files with `tsc` and a temporary utility to transform file extensions.
-- `npm run start` - Builds the files, sets the `GASKET_ENV` to `production`, and starts the server with `node` over `https`.
+- `npm run start` - Starts the server with `node` over `https`. `GASKET_ENV` will default to the `NODE_ENV` if not set.
+- `npm run start:local` - Starts the server with `node` over `http`. `GASKET_ENV` is set to `local`. *An error will occur if certs are not provided.*
+- `npm run start:prod` - Starts the server with `node` over `https`. `GASKET_ENV` is set to `production`.
+- `npm run preview` - Builds the files and runs the start command with the `GASKET_ENV` set to the `NODE_ENV`.
 
 ## App-level Typescript Plugin
 

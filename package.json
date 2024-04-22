@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc && node transform-extensions.js",
-    "start": "npm run build && GASKET_ENV=production node dist/server.js",
+    "start": "node dist/server.js",
+    "start:local": "GASKET_ENV=local npm run start",
+    "start:prod": "GASKET_ENV=production npm run start",
     "local": "GASKET_ENV=local nodemon server.ts",
+    "preview": "npm run build && npm run start:local",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "npm run lint -- --fix",
     "stylelint": "stylelint \"**/*.scss\"",
